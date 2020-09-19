@@ -1,0 +1,84 @@
+div.card {
+  position: relative;
+  padding: 5px;
+  margin: 15px;
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  background: rgb(202 235 71);
+  background-image: linear-gradient(60deg, #0000006b 0%, transparent, white);
+  box-shadow: 3px 4px 7px #0000008a;
+}
+div.card .header {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 80%;
+  height: 20%;
+  top: 5%;
+  font-size: large;
+  font-weight: bold;
+  left: 5%;
+  text-align: center;
+  border-bottom: 1px solid rgb(168 155 17 / 46%);
+  word-wrap: break-word;
+  box-shadow: 0 1px #6f78571f;
+  overflow: hidden;
+  text-shadow: 1px 1px grey;
+}
+div.card .paperPin {
+  position: absolute;
+  cursor: pointer;
+  right: 0px;
+  top: 0px;
+}
+div.card .body {
+  font-family: "Dancing Script", cursive !important;
+  font-size: 1.1em;
+  padding: 1px;
+  text-indent: 1.2em;
+  position: absolute;
+  margin: 0 0.5em;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 90%;
+  top: 4em;
+  height: 51%;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(168 155 17 / 46%);
+}
+
+div.card .body:hover {
+  cursor: pointer;
+}
+
+div.card .footer {
+  position: absolute;
+  padding: 0 10px;
+  margin: 0;
+  width: 100%;
+  height: 20%;
+  bottom: 0;
+}
+div.card .footer .date {
+  color: rgb(9, 37, 114);
+}
+
+div.card .footer .configs {
+  margin-top: 3px;
+  width: 70%;
+}
+div.card .footer .edit {
+  color: rgb(9, 37, 114);
+}
+div.card .footer .edit:hover {
+  color: rgb(9, 37, 114);
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+div.card .body::first-letter {
+  font-size: 1.3em;
+  color: red;
+  text-shadow: 1px 1px grey;
+}

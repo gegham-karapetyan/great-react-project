@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
+import ToDoApp from "./components/ToDoApp";
 
-function App(props) {
-  return <h1 className="App">let's start all over again</h1>;
+function App() {
+  return <ToDoApp />;
 }
 
 export default App;

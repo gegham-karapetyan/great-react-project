@@ -1,0 +1,19 @@
+.header {
+  position: absolute;
+  width: 80%;
+  padding: 0;
+  top: 5%;
+  left: 5%;
+}
+.header .textOfheader {
+  font-size: large;
+  font-weight: bold;
+  color: rgb(49, 39, 136);
+}
+.header input {
+  display: inline-block;
+  width: 100%;
+  font-size: 2em;
+  box-shadow: 0 0 6px rgb(155, 179, 224);
+  background-color: #f8f8ff;
+}
