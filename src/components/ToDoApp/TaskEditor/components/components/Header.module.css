@@ -8,12 +8,20 @@
 .header .textOfheader {
   font-size: large;
   font-weight: bold;
-  color: rgb(49, 39, 136);
+  color: rgb(66 160 165);
 }
 .header input {
   display: inline-block;
+  border: none;
+  padding: 3px;
   width: 100%;
   font-size: 2em;
   box-shadow: 0 0 6px rgb(155, 179, 224);
+  background-color: #f8f8ff;
+}
+
+.header input:focus {
+  outline: none;
+  box-shadow: 2px 2px 9px rgb(224, 200, 155);
   background-color: #f8f8ff;
 }

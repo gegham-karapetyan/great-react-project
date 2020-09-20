@@ -52,6 +52,12 @@ div.card .body:hover {
   cursor: pointer;
 }
 
+div.card .body::first-letter {
+  font-size: 1.3em;
+  color: red;
+  text-shadow: 1px 1px grey;
+}
+
 div.card .footer {
   position: absolute;
   padding: 0 10px;
@@ -77,8 +83,15 @@ div.card .footer .edit:hover {
   font-size: 1.1em;
 }
 
-div.card .body::first-letter {
-  font-size: 1.3em;
-  color: red;
-  text-shadow: 1px 1px grey;
+div.card .footer .checkbox{
+  position:absolute;
+  cursor:pointer;
+  right:30px;
+  bottom:3px;
+  width:45px;
+  height:45px;
+  background-color:white;
+  border:1px solid red;
 }
+
+

@@ -5,15 +5,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 class ToDoCard extends PureComponent {
+  state={
+    selected:false
+  }
+  
+  onClick=()=>{
+    let {selected} = this.state;
+    console.log(selected)
+    this.setState({selected:!selected})
+  }
   render() {
+    console.log('todo card render')
     const props = this.props;
     return (
       <div className={styles.card}>
-        <div className={styles.header}>{props.toDoHeader}</div>
-        <div className={styles.paperPin} title="delete">
+        <div className={styles.header}>{props.header}</div>
+        <div className={styles.paperPin} title="delete" 
+            onClick={()=>{console.log('pin clicked',props); props.onRemove(props.id)}}>
           <img src={paperPin} alt="paper-pin" width="50px" />
         </div>
-        <div className={styles.body}>{props.toDoBody}</div>
+        <div className={styles.body}>{props.body}</div>
         <div className={styles.footer}>
           <div className={styles.date}>
             <FontAwesomeIcon icon={faCalendarAlt} /> {props.date}
@@ -23,6 +34,7 @@ class ToDoCard extends PureComponent {
               <FontAwesomeIcon icon={faEdit} />
               Edit
             </span>
+            <div className={styles.checkbox} onClick={this.onClick}></div>
           </div>
         </div>
       </div>

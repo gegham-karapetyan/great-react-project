@@ -1,0 +1,12 @@
+.configs{
+    position:fixed;
+    display:block;
+    right:2%;
+    top:15%;
+    width:10%;
+    height:20%;
+    padding:0;
+    background-color:#f3f3f3;
+    border-radius:5px;
+    z-index:5;
+}
