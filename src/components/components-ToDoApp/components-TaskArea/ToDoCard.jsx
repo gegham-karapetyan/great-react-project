@@ -4,10 +4,11 @@ import paperPin from "./paper-pin-mini.png";
 import select from "./select.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
-
+import View from "./components-ToDoCard/View";
 class ToDoCard extends PureComponent {
   state = {
     selected: false,
+    doShowView: false,
   };
 
   onClick = () => {
@@ -15,12 +16,14 @@ class ToDoCard extends PureComponent {
 
     this.setState({ selected: !selected });
   };
+  closeView = () => {
+    let { doShowView } = this.state;
+    this.setState({ doShowView: !doShowView });
+  };
   render() {
-    console.log("todo card render this.props",this.props);
-
     const props = this.props;
 
-    let { selected } = this.state;
+    let { selected, doShowView } = this.state;
 
     return (
       <div
@@ -38,7 +41,12 @@ class ToDoCard extends PureComponent {
           }}>
           <img src={paperPin} alt="paper-pin" width="50px" />
         </div>
-        <div className={styles.body}>{props.body}</div>
+        {doShowView && <View closeView={this.closeView} text={props.body} />}
+        <div
+          className={styles.body}
+          onClick={() => this.setState({ doShowView: true })}>
+          {props.body}
+        </div>
         <div className={styles.footer}>
           <div className={styles.date}>
             <FontAwesomeIcon icon={faCalendarAlt} /> {props.date}

@@ -1,0 +1,52 @@
+.background {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(52 51 39 / 28%);
+  z-index: 5;
+}
+.view {
+  padding: 1%;
+  position: relative;
+  /* top: 20%;
+  left: 30%; */
+  display: block;
+  border-radius: 5px;
+  max-width: 60%;
+  height: auto;
+  min-height: 20%;
+  max-height: 80%;
+
+  margin: 10px auto;
+  border: none;
+  background-color: ghostwhite;
+  box-shadow: 0px 0px 3px rgb(100, 82, 82);
+}
+.text {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+.button {
+  background-color: #2196f3cc;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 5px rgb(187, 181, 181);
+  display: block;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  padding: 10px 30px;
+  text-align: center;
+}
+.button:hover {
+  background-color: #2196f3;
+}

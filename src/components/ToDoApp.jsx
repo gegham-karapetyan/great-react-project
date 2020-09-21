@@ -1,31 +1,34 @@
 import React, { Component } from "react";
 import Input from "./components-ToDoApp/Input";
 import Configs from "./components-ToDoApp/Configs";
-import TaskEditer from "./components-ToDoApp/TaskEditor";
+import TaskEditor from "./components-ToDoApp/TaskEditor";
 import TasksArea from "./components-ToDoApp/TasksArea";
 import idGenerator from "./GlobalFunctionsLibrary/idGenerator";
 import pushInArray from "./GlobalFunctionsLibrary/pushInArray";
 
-class ToDoApp1 extends Component {
+class ToDoApp extends Component {
   state = {
     isSelected: false,
-    taskEditerIsOpen: false,
+    taskEditorIsOpen: false,
     tasks: [],
   };
-   
-   SelectedTasksIds = {};
-  addTask = () => {
+
+  selectedTasksIds = {};
+
+  //for conditional rendering when the 'Add your task' button is pressed
+  openEditor = () => {
     this.setState({
-      taskEditerIsOpen: true,
+      taskEditorIsOpen: true,
     });
   };
   onHidden = () => {
     this.setState({
-      taskEditerIsOpen: false,
+      taskEditorIsOpen: false,
     });
   };
 
   //Task Object Model TOM
+  //when pressing 'add' button from Editor
   onAdd = (TOM) => {
     const { tasks } = this.state;
     const newTasks = tasks.slice();
@@ -48,26 +51,22 @@ class ToDoApp1 extends Component {
     this.setState({ isSelected: !isSelected });
   };
 
-  
-  
-  
-
+  //for getting tasks ids from the checkbox
   onSelected = (id, selected) => {
-    const SelectedIds = this.SelectedTasksIds;
-    const { onRemoveSelected } = this.props;
-
+    const selectedIds = this.selectedTasksIds;
     if (selected) {
-      SelectedIds[id] = selected;
-    } else delete SelectedIds[id];
-
-    
-    console.log("ID", id);
-    console.log(SelectedIds);
+      selectedIds[id] = selected;
+    } else delete selectedIds[id];
   };
 
+  //when pressing Delete button
   onRemoveSelected = () => {
     const { tasks } = this.state;
-    this.setState({ tasks: tasks.filter(({ id }) => !this.SelectedTasksIds[id]) });
+    this.setState({
+      isSelected: false,
+      tasks: tasks.filter(({ id }) => !this.selectedTasksIds[id]),
+    });
+    this.selectedTasksIds = {};
   };
 
   render() {
@@ -75,29 +74,34 @@ class ToDoApp1 extends Component {
       onHidden,
       onAdd,
       onRemove,
-      addTask,
+      openEditor,
       onSelect,
       onRemoveSelected,
-      onSelected
+      onSelected,
     } = this;
-    const { taskEditerIsOpen, tasks, isSelected } = this.state;
+    const { taskEditorIsOpen, tasks, isSelected } = this.state;
 
     return (
       <div>
-        <Input addTask={addTask} />
+        <Input openEditor={openEditor} />
         <Configs
           onSelect={onSelect}
           permission={!!tasks.length}
           isSelected={isSelected}
           onRemoveSelected={onRemoveSelected}
+          selectedTasksIds={this.selectedTasksIds}
         />
-        {taskEditerIsOpen && <TaskEditer onHidden={onHidden} onAdd={onAdd} />}
-        {/* ToDoCard -ը ռենդերա լինում 2 անգամ ինչիցա?  */}
-        <TasksArea tasks={tasks} onRemove={onRemove} isSelected={isSelected} onRemoveSelected={onRemoveSelected}
-        onSelected={onSelected}
+        {taskEditorIsOpen && <TaskEditor onHidden={onHidden} onAdd={onAdd} />}
+        {/* Խիա ամենինչ 2 անգամ ռենդեր անում?  */}
+        <TasksArea
+          tasks={tasks}
+          onRemove={onRemove}
+          isSelected={isSelected}
+          onRemoveSelected={onRemoveSelected}
+          onSelected={onSelected}
         />
       </div>
     );
   }
 }
-export default ToDoApp1;
+export default ToDoApp;

@@ -3,7 +3,7 @@
   display: block;
   user-select: none;
   right: 0;
-  top: 30%;
+  top: 25%;
   text-align: center;
   overflow: hidden;
   width: 100%;
@@ -20,7 +20,7 @@
   color: white;
   border: none;
   cursor: pointer;
-  background-color: #e91e63d9;
+  background-color: #e91e62cb;
 }
 .delete.active:hover {
   background-color: #e91e63;

@@ -3,16 +3,11 @@ import styles from "./TaskArea.module.css";
 import ToDoCard from "./components-TaskArea/ToDoCard";
 
 class TasksArea extends Component {
-  
-
   render() {
-    console.log("props barev", this.props);
-    
-    const { onRemove, isSelected,onSelected } = this.props;
+    const { onRemove, isSelected, onSelected } = this.props;
     // ստեղ const {tasks} = this.state չի աշխատում
-    const {tasks} = this.props;
+    const { tasks } = this.props;
 
-    console.log("TaskArea render", tasks);
     return (
       <div className={styles.background}>
         {tasks.map((task) => (
