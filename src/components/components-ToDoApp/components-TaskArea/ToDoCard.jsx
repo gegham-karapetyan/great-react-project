@@ -16,7 +16,7 @@ class ToDoCard extends PureComponent {
     this.setState({ selected: !selected });
   };
   render() {
-    console.log("todo card render");
+    console.log("todo card render this.props",this.props);
 
     const props = this.props;
 
@@ -28,10 +28,13 @@ class ToDoCard extends PureComponent {
         <div className={styles.header}>{props.header}</div>
         <div
           className={styles.paperPin}
-          title="delete"
+          title={
+            props.isSelected
+              ? "To remove one by one turn off the SELECT button"
+              : "remove"
+          }
           onClick={() => {
-            console.log("pin clicked", props);
-            props.onRemove(props.id);
+            if (!props.isSelected) props.onRemove(props.id);
           }}>
           <img src={paperPin} alt="paper-pin" width="50px" />
         </div>
@@ -57,7 +60,7 @@ class ToDoCard extends PureComponent {
                   <img
                     className={styles.selected}
                     src={select}
-                    ald="select icon"
+                    alt="select icon"
                   />
                 )}
               </div>

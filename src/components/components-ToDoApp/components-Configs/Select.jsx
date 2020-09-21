@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import styles from "./Select.module.css";
 
 function Select(props) {
