@@ -1,20 +1,19 @@
-.select{
-    position:absolute;
-    display:block;
-    user-select:none;
-    right:0;
-    text-align:center;
-    overflow:hidden;
-    width:100%;
-    padding:3px 0;
-    background-color:#009688b0;;
-    color:white;
-    margin:10px 0;
-    border-radius:1em;
-    cursor:pointer;
-    z-index:5;
-    
+.select {
+  position: absolute;
+  display: block;
+  user-select: none;
+  right: 0;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  padding: 3px 0;
+  background-color: #009688b0;
+  color: white;
+  margin: 10px 0;
+  border-radius: 1em;
+  cursor: pointer;
+  z-index: 5;
 }
-.select:hover{
-    background-color:#009688;
+.select:hover {
+  background-color: #009688;
 }

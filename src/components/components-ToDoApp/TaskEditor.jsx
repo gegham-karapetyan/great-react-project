@@ -3,10 +3,10 @@ import styles from "./TaskEditor.module.css";
 import Editor from "./components-TaskEditor/Editor";
 
 function TaskEditor(props) {
-  const { isHidden, onAdd } = props;
+  const { onHidden, onAdd } = props;
   return (
     <div className={styles.background}>
-      <Editor isHidden={isHidden} onAdd={onAdd} />
+      <Editor onHidden={onHidden} onAdd={onAdd} />
     </div>
   );
 }

@@ -17,10 +17,10 @@ class Editor extends PureComponent {
 
   render() {
     const { TOM } = this;
-    const { isHidden, onAdd } = this.props;
+    const { onHidden, onAdd } = this.props;
     return (
       <div className={styles.editor}>
-        <div className={styles.closer} onClick={isHidden}>
+        <div className={styles.closer} onClick={onHidden}>
           X
         </div>
         <Header getHeaderValue={this.getHeaderValue} />
@@ -29,7 +29,7 @@ class Editor extends PureComponent {
           className={styles.add}
           onClick={() => {
             onAdd(TOM);
-            isHidden();
+            onHidden();
           }}>
           add
         </div>

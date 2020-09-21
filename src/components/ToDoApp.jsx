@@ -17,7 +17,7 @@ class ToDoApp1 extends PureComponent {
       taskEditerIsOpen: true,
     });
   };
-  isHidden = () => {
+  onHidden = () => {
     this.setState({
       taskEditerIsOpen: false,
     });
@@ -46,14 +46,14 @@ class ToDoApp1 extends PureComponent {
   };
 
   render() {
-    const { isHidden, onAdd, onRemove, addTask, onSelect } = this;
+    const { onHidden, onAdd, onRemove, addTask, onSelect } = this;
     const { taskEditerIsOpen, tasks, isSelected } = this.state;
 
     return (
       <div>
         <Input addTask={addTask} />
         <Configs onSelect={onSelect} />
-        {taskEditerIsOpen && <TaskEditer isHidden={isHidden} onAdd={onAdd} />}
+        {taskEditerIsOpen && <TaskEditer onHidden={onHidden} onAdd={onAdd} />}
         {/* ToDoCard -ը ռենդերա լինում 2 անգամ ինչիցա?  */}
         <TasksArea tasks={tasks} onRemove={onRemove} isSelected={isSelected} />
       </div>

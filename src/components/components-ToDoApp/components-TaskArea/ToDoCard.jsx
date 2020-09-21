@@ -6,27 +6,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 class ToDoCard extends PureComponent {
-  state={
-    selected:false
-  }
-  
-  onClick=()=>{
-    let {selected} = this.state;
-    
-    this.setState({selected:!selected})
-  }
+  state = {
+    selected: false,
+  };
+
+  onClick = () => {
+    let { selected } = this.state;
+
+    this.setState({ selected: !selected });
+  };
   render() {
-    console.log('todo card render');
-  
+    console.log("todo card render");
+
     const props = this.props;
-    
-    let {selected} = this.state
-    
+
+    let { selected } = this.state;
+
     return (
-      <div className={`${styles.card} ${props.isSelected ? styles.selected : ''}`}>
+      <div
+        className={`${styles.card} ${props.isSelected ? styles.selected : ""}`}>
         <div className={styles.header}>{props.header}</div>
-        <div className={styles.paperPin} title="delete" 
-            onClick={()=>{console.log('pin clicked',props); props.onRemove(props.id)}}>
+        <div
+          className={styles.paperPin}
+          title="delete"
+          onClick={() => {
+            console.log("pin clicked", props);
+            props.onRemove(props.id);
+          }}>
           <img src={paperPin} alt="paper-pin" width="50px" />
         </div>
         <div className={styles.body}>{props.body}</div>
@@ -39,19 +45,23 @@ class ToDoCard extends PureComponent {
               <FontAwesomeIcon icon={faEdit} />
               Edit
             </span>
-            {props.isSelected && 
-            <div className={styles.checkbox} 
-            onClick={
-              ()=>{this.onClick();
-                
-                 props.onSelected(props.id, !selected)
-                }
-              }
-            >
-            {
-                selected && <img className ={styles.selected} src={select} ald='select icon'/>
-            }</div>
-  }
+            {props.isSelected && (
+              <div
+                className={styles.checkbox}
+                onClick={() => {
+                  this.onClick();
+
+                  props.onSelected(props.id, !selected);
+                }}>
+                {selected && (
+                  <img
+                    className={styles.selected}
+                    src={select}
+                    ald="select icon"
+                  />
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

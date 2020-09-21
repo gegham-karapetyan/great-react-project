@@ -4,6 +4,7 @@ import Select from "./components-Configs/Select";
 import Delete from "./components-Configs/Delete";
 
 class Configs extends PureComponent {
+  state = {};
   render() {
     return (
       <div className={styles.configs}>

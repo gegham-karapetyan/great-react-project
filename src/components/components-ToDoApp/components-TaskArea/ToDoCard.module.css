@@ -10,8 +10,8 @@ div.card {
   box-shadow: 3px 4px 7px #0000008a;
   transition: box-shadow 1s;
 }
-div.card.selected{
-  border:1px solid white;
+div.card.selected {
+  border: 1px solid white;
   box-shadow: 3px 4px 7px red;
 }
 
@@ -65,7 +65,7 @@ div.card .body::first-letter {
 }
 
 div.card .footer {
-  user-select:none;
+  user-select: none;
   position: absolute;
   padding: 0 10px;
   margin: 0;
@@ -90,21 +90,20 @@ div.card .footer .edit:hover {
   font-size: 1.1em;
 }
 
-div.card .footer .checkbox{
-  position:absolute;
-  cursor:pointer;
-  right:30px;
-  bottom:3px;
-  width:45px;
-  height:45px;
-  background-color:white;
-  border:1px solid red;
+div.card .footer .checkbox {
+  position: absolute;
+  cursor: pointer;
+  right: 30px;
+  bottom: 3px;
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border: 1px solid red;
 }
 
-div.card .footer .selected{
-   position:absolute;
-   display:block;
-   right:-14px;
-  bottom:3px;
+div.card .footer .selected {
+  position: absolute;
+  display: block;
+  right: -14px;
+  bottom: 3px;
 }
-

@@ -1,7 +1,7 @@
-import React,{PureComponent} from 'react'
-import styles from './Delete.module.css'
+import React, { PureComponent } from "react";
+import styles from "./Delete.module.css";
 
-function Delete (props){
-    return <div className={styles.delete} >Delete</div>
+function Delete(props) {
+  return <div className={styles.delete}>Delete</div>;
 }
-export default Delete
+export default Delete;

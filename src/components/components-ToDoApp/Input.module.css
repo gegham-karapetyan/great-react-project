@@ -1,21 +1,20 @@
-.input{
-    position:fixed;
-    display:block;
-    user-select:none;
-    right:2%;
-    text-align:center;
-    overflow:hidden;
-    top:0;
-    width:8%;
-    padding:1em;
-    background-color:#673ab7c7;
-    color:white;
-    margin:2% auto;
-    border-radius:1em;
-    cursor:pointer;
-    z-index:5;
-    
+.input {
+  position: fixed;
+  display: block;
+  user-select: none;
+  right: 2%;
+  text-align: center;
+  overflow: hidden;
+  top: 0;
+  width: 8%;
+  padding: 1em;
+  background-color: #673ab7c7;
+  color: white;
+  margin: 2% auto;
+  border-radius: 1em;
+  cursor: pointer;
+  z-index: 5;
 }
-.input:hover{
-    background-color:#673ab7;
+.input:hover {
+  background-color: #673ab7;
 }
