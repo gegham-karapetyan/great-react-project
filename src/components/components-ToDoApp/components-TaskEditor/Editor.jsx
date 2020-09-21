@@ -1,10 +1,11 @@
 import React, { PureComponent } from "react";
-import Header from "./components/Header";
-import Body from "./components/Body";
 import styles from "./Editor.module.css";
+import Header from "./components-Editor/Header";
+import Body from "./components-Editor/Body";
+
 class Editor extends PureComponent {
   // Task Object Model TOM
-  TOM = {}; 
+  TOM = {};
 
   getHeaderValue = (headerValue) => {
     this.TOM.header = headerValue;

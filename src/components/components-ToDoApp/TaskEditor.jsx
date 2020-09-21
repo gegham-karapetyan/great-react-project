@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./TaskEditor.module.css";
-import Editor from "./components/Editor";
+import Editor from "./components-TaskEditor/Editor";
 
 function TaskEditor(props) {
   const { isHidden, onAdd } = props;

@@ -1,8 +1,9 @@
 .background{
     background-color:#F8F8FF;
-    height:100%;
+    min-height:700px;
     padding:1%;
     width:85%;
     border:none;
+    box-shadow:0 0 3px lightgray
     
 }

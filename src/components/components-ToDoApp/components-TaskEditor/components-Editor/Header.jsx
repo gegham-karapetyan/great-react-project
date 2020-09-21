@@ -16,7 +16,7 @@ class Header extends PureComponent {
     return (
       <div className={styles.header}>
         <div className={styles.textOfheader}>Header :</div>
-        <input type="text" value={value} onChange={this.onChange} />
+        <input type="text" value={value} onChange={this.onChange} autoFocus/>
       </div>
     );
   }

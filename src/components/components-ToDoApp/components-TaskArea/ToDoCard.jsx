@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
-import styles from "./ToDo.module.css";
+import styles from "./ToDoCard.module.css";
 import paperPin from "./paper-pin-mini.png";
+import select from "./select.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,14 +12,18 @@ class ToDoCard extends PureComponent {
   
   onClick=()=>{
     let {selected} = this.state;
-    console.log(selected)
+    
     this.setState({selected:!selected})
   }
   render() {
-    console.log('todo card render')
+    console.log('todo card render');
+  
     const props = this.props;
+    
+    let {selected} = this.state
+    
     return (
-      <div className={styles.card}>
+      <div className={`${styles.card} ${props.isSelected ? styles.selected : ''}`}>
         <div className={styles.header}>{props.header}</div>
         <div className={styles.paperPin} title="delete" 
             onClick={()=>{console.log('pin clicked',props); props.onRemove(props.id)}}>
@@ -34,7 +39,19 @@ class ToDoCard extends PureComponent {
               <FontAwesomeIcon icon={faEdit} />
               Edit
             </span>
-            <div className={styles.checkbox} onClick={this.onClick}></div>
+            {props.isSelected && 
+            <div className={styles.checkbox} 
+            onClick={
+              ()=>{this.onClick();
+                
+                 props.onSelected(props.id, !selected)
+                }
+              }
+            >
+            {
+                selected && <img className ={styles.selected} src={select} ald='select icon'/>
+            }</div>
+  }
           </div>
         </div>
       </div>

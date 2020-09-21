@@ -1,0 +1,29 @@
+.delete{
+    position:absolute;
+    display:block;
+    user-select:none;
+    right:0;
+    top:30%;
+    text-align:center;
+    overflow:hidden;
+    width:100%;
+    padding:3px 0;
+    background-color:white;
+    border:1px solid #c5baba;;
+    color:black;
+    margin:10px 0;
+    border-radius:1em;
+    z-index:5;
+    
+}
+
+
+.delete.active{
+    color:white;
+    border:none;
+    cursor:pointer;
+    background-color:#e91e63d9;
+}
+.delete.active:hover{
+    background-color:#e91e63;
+}

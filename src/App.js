@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import ToDoApp1 from "./components/ToDoApp/ToDoApp";
+import ToDoApp from "./components/ToDoApp";
 
 function App() {
-  return <ToDoApp1 />;
+  return <ToDoApp />;
 }
 
 export default App;

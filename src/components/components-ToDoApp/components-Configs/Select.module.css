@@ -1,20 +1,20 @@
 .select{
     position:absolute;
     display:block;
+    user-select:none;
     right:0;
     text-align:center;
     overflow:hidden;
-    /* top:0; */
     width:100%;
-    padding:5px 0;
-    background-color:#e91e63c7;
+    padding:3px 0;
+    background-color:#009688b0;;
     color:white;
-    margin:10px auto;
+    margin:10px 0;
     border-radius:1em;
     cursor:pointer;
     z-index:5;
     
 }
 .select:hover{
-    background-color:#e91e63;
+    background-color:#009688;
 }
