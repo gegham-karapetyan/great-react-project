@@ -1,22 +1,28 @@
 import React, { PureComponent } from "react";
 import styles from "./Body.module.css";
 class Body extends PureComponent {
-  state = { value: "" };
+  constructor(props) {
+    console.log("props", props);
+    super();
+    this.state = { value: props.initialBodyValue || "" };
+  }
 
-  onInput = (e) => {
-    this.props.getBodyValue(e.target.innerHTML);
+  onChange = (e) => {
+    this.props.getBodyValue(e.target.value);
     this.setState({
-      value: e.target.innerHTML,
+      value: e.target.value,
     });
   };
   render() {
+    let { value } = this.state;
     return (
       <div className={styles.body}>
         <div className={styles.textOfbody}>Body :</div>
-        <div
+        <textarea
           className={styles.content}
-          contentEditable={true}
-          onInput={this.onInput}
+          onChange={this.onChange}
+          value={value}
+          textarea="true"
         />
       </div>
     );

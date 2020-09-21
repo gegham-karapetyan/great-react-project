@@ -5,13 +5,21 @@ import select from "./select.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import View from "./components-ToDoCard/View";
-class ToDoCard extends PureComponent {
-  state = {
-    selected: false,
-    doShowView: false,
-  };
+import TaskEditor from "../TaskEditor";
 
-  onClick = () => {
+class ToDoCard extends PureComponent {
+  constructor(props) {
+    super();
+    this.state = {
+      selected: false,
+      doShowView: false,
+      doOpenTaskEditor: false,
+      header: props.header,
+      body: props.body,
+    };
+  }
+
+  toggleSelected = () => {
     let { selected } = this.state;
 
     this.setState({ selected: !selected });
@@ -20,15 +28,25 @@ class ToDoCard extends PureComponent {
     let { doShowView } = this.state;
     this.setState({ doShowView: !doShowView });
   };
+  openTaskEditor = () => {
+    this.setState({ doOpenTaskEditor: true });
+  };
+  closeTaskEditor = () => {
+    this.setState({ doOpenTaskEditor: false });
+  };
+  changeTask = (TOM) => {
+    this.setState({ header: TOM.header, body: TOM.body });
+  };
+
   render() {
     const props = this.props;
-
-    let { selected, doShowView } = this.state;
+    console.log("id", props.id);
+    let { selected, doShowView, doOpenTaskEditor, header, body } = this.state;
 
     return (
       <div
         className={`${styles.card} ${props.isSelected ? styles.selected : ""}`}>
-        <div className={styles.header}>{props.header}</div>
+        <div className={styles.header}>{header}</div>
         <div
           className={styles.paperPin}
           title={
@@ -41,18 +59,18 @@ class ToDoCard extends PureComponent {
           }}>
           <img src={paperPin} alt="paper-pin" width="50px" />
         </div>
-        {doShowView && <View closeView={this.closeView} text={props.body} />}
+
         <div
           className={styles.body}
           onClick={() => this.setState({ doShowView: true })}>
-          {props.body}
+          {body}
         </div>
         <div className={styles.footer}>
           <div className={styles.date}>
             <FontAwesomeIcon icon={faCalendarAlt} /> {props.date}
           </div>
           <div className={styles.configs}>
-            <span className={styles.edit}>
+            <span className={styles.edit} onClick={this.openTaskEditor}>
               <FontAwesomeIcon icon={faEdit} />
               Edit
             </span>
@@ -60,8 +78,7 @@ class ToDoCard extends PureComponent {
               <div
                 className={styles.checkbox}
                 onClick={() => {
-                  this.onClick();
-
+                  this.toggleSelected();
                   props.onSelected(props.id, !selected);
                 }}>
                 {selected && (
@@ -74,6 +91,16 @@ class ToDoCard extends PureComponent {
               </div>
             )}
           </div>
+          {doShowView && <View closeView={this.closeView} text={props.body} />}
+          {doOpenTaskEditor && (
+            <TaskEditor
+              onAdd={this.changeTask}
+              onHidden={this.closeTaskEditor}
+              initialHeaderValue={props.header}
+              initialBodyValue={props.body}
+              buttonText="save"
+            />
+          )}
         </div>
       </div>
     );

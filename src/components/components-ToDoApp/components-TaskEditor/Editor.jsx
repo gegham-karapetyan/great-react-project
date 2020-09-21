@@ -17,21 +17,33 @@ class Editor extends PureComponent {
 
   render() {
     const { TOM } = this;
-    const { onHidden, onAdd } = this.props;
+    const {
+      onHidden,
+      onAdd,
+      initialHeaderValue,
+      initialBodyValue,
+      buttonText,
+    } = this.props;
     return (
       <div className={styles.editor}>
         <div className={styles.closer} onClick={onHidden}>
           X
         </div>
-        <Header getHeaderValue={this.getHeaderValue} />
-        <Body getBodyValue={this.getBodyValue} />
+        <Header
+          getHeaderValue={this.getHeaderValue}
+          initialHeaderValue={initialHeaderValue}
+        />
+        <Body
+          getBodyValue={this.getBodyValue}
+          initialBodyValue={initialBodyValue}
+        />
         <div
           className={styles.add}
           onClick={() => {
             onAdd(TOM);
             onHidden();
           }}>
-          add
+          {buttonText || "add"}
         </div>
       </div>
     );
