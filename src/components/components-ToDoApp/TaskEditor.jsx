@@ -9,6 +9,7 @@ function TaskEditor(props) {
     initialHeaderValue,
     initialBodyValue,
     buttonText,
+    importance,
   } = props;
   return (
     <div className={styles.background}>
@@ -18,6 +19,7 @@ function TaskEditor(props) {
         initialHeaderValue={initialHeaderValue}
         initialBodyValue={initialBodyValue}
         buttonText={buttonText}
+        importance={importance}
       />
     </div>
   );

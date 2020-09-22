@@ -1,0 +1,68 @@
+.buttonsGroup {
+  width: 20%;
+  position: absolute;
+  height: 60%;
+  right: -12%;
+  bottom: 3.5%;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.add {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  font-size: large;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  padding: 0.5em 0;
+  background-color: rgba(21, 103, 175, 0.76);
+}
+.add:hover {
+  cursor: pointer;
+  background-color: rgba(21, 103, 175);
+}
+
+.casual {
+  position: absolute;
+  bottom: 25%;
+  width: 100%;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 3px 0;
+  background-color: rgba(181, 169, 179, 0.795);
+}
+.casual:hover {
+  cursor: pointer;
+  background-color: rgba(181, 169, 179);
+}
+
+.warning {
+  position: absolute;
+  bottom: 35%;
+  width: 100%;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 3px 0;
+  background-color: rgba(185, 223, 15, 0.719);
+}
+.warning:hover {
+  cursor: pointer;
+  background-color: rgb(185, 223, 15);
+}
+.important {
+  position: absolute;
+  bottom: 45%;
+  width: 100%;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 3px 0;
+  background-color: rgba(223, 15, 15, 0.719);
+}
+.important:hover {
+  cursor: pointer;
+  background-color: rgb(223, 15, 15);
+}

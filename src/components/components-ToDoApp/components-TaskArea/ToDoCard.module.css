@@ -60,8 +60,9 @@ div.card .body:hover {
 
 div.card .body::first-letter {
   font-size: 1.3em;
-  color: red;
-  text-shadow: 1px 1px grey;
+  font-weight: bold;
+  color: rgb(162, 0, 255);
+  text-shadow: 1px 1px rgb(25, 25, 26);
 }
 
 div.card .footer {
@@ -74,6 +75,7 @@ div.card .footer {
   bottom: 0;
 }
 div.card .footer .date {
+  max-width: 80%;
   color: rgb(9, 37, 114);
 }
 
@@ -106,4 +108,14 @@ div.card .footer .selected {
   display: block;
   right: -14px;
   bottom: 3px;
+}
+
+.card.casual {
+  background: rgb(181 169 179);
+  background-image: linear-gradient(60deg, #0000006b 0%, transparent, white);
+}
+
+.card.important {
+  background: rgb(246 135 173);
+  background-image: linear-gradient(60deg, #0000006b 0%, transparent, white);
 }

@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
 import styles from "./ToDoCard.module.css";
-import paperPin from "./paper-pin-mini.png";
+import important from "./important.png";
+import warning from "./warning.png";
+import casual from "./casual.png";
 import select from "./select.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
@@ -12,13 +14,25 @@ class ToDoCard extends PureComponent {
     super();
     this.state = {
       selected: false,
+      isEdited: false,
       doShowView: false,
       doOpenTaskEditor: false,
       header: props.header,
       body: props.body,
+      date: props.date,
+      importance: props.importance,
     };
   }
-
+  imageSrc = (importance) => {
+    switch (importance) {
+      case "important":
+        return important;
+      case "warning":
+        return warning;
+      default:
+        return casual;
+    }
+  };
   toggleSelected = () => {
     let { selected } = this.state;
 
@@ -35,17 +49,33 @@ class ToDoCard extends PureComponent {
     this.setState({ doOpenTaskEditor: false });
   };
   changeTask = (TOM) => {
-    this.setState({ header: TOM.header, body: TOM.body });
+    console.log(TOM);
+    this.setState({
+      header: TOM.header,
+      body: TOM.body,
+      isEdited: "(edited)",
+      importance: TOM.importance,
+    });
   };
 
   render() {
     const props = this.props;
-    console.log("id", props.id);
-    let { selected, doShowView, doOpenTaskEditor, header, body } = this.state;
+    let {
+      selected,
+      doShowView,
+      doOpenTaskEditor,
+      isEdited,
+      header,
+      body,
+      date,
+      importance,
+    } = this.state;
 
     return (
       <div
-        className={`${styles.card} ${props.isSelected ? styles.selected : ""}`}>
+        className={`${styles.card} ${styles[importance]} ${
+          props.isSelected ? styles.selected : ""
+        }`}>
         <div className={styles.header}>{header}</div>
         <div
           className={styles.paperPin}
@@ -57,7 +87,7 @@ class ToDoCard extends PureComponent {
           onClick={() => {
             if (!props.isSelected) props.onRemove(props.id);
           }}>
-          <img src={paperPin} alt="paper-pin" width="50px" />
+          <img src={this.imageSrc(importance)} alt="paper-pin" width="50px" />
         </div>
 
         <div
@@ -66,8 +96,9 @@ class ToDoCard extends PureComponent {
           {body}
         </div>
         <div className={styles.footer}>
-          <div className={styles.date}>
-            <FontAwesomeIcon icon={faCalendarAlt} /> {props.date}
+          <div className={styles.date} title="date of creation">
+            <FontAwesomeIcon icon={faCalendarAlt} /> {date}{" "}
+            <small style={{ color: "white" }}>{isEdited}</small>
           </div>
           <div className={styles.configs}>
             <span className={styles.edit} onClick={this.openTaskEditor}>
@@ -91,13 +122,14 @@ class ToDoCard extends PureComponent {
               </div>
             )}
           </div>
-          {doShowView && <View closeView={this.closeView} text={props.body} />}
+          {doShowView && <View closeView={this.closeView} text={body} />}
           {doOpenTaskEditor && (
             <TaskEditor
               onAdd={this.changeTask}
               onHidden={this.closeTaskEditor}
               initialHeaderValue={props.header}
               initialBodyValue={props.body}
+              importance={importance}
               buttonText="save"
             />
           )}

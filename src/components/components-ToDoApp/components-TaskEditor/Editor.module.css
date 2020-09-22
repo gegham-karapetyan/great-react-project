@@ -25,22 +25,3 @@
   background-color: red;
   cursor: pointer;
 }
-
-.editor .add {
-  position: absolute;
-  bottom: 3.5%;
-  right: -12%;
-  display: inline-block;
-  width: 20%;
-  padding: 10px 4px;
-  text-align: center;
-  font-size: large;
-  font-weight: bolder;
-  background-color: rgba(21, 103, 175, 0.76);
-  border-bottom-right-radius: 15px;
-  border-top-left-radius: 15px;
-}
-.editor .add:hover {
-  cursor: pointer;
-  background-color: rgba(21, 103, 175);
-}

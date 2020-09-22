@@ -2,13 +2,12 @@ import React, { PureComponent } from "react";
 import styles from "./Body.module.css";
 class Body extends PureComponent {
   constructor(props) {
-    console.log("props", props);
     super();
     this.state = { value: props.initialBodyValue || "" };
   }
 
   onChange = (e) => {
-    this.props.getBodyValue(e.target.value);
+    this.props.setBodyValue(e.target.value);
     this.setState({
       value: e.target.value,
     });
@@ -19,7 +18,7 @@ class Body extends PureComponent {
       <div className={styles.body}>
         <div className={styles.textOfbody}>Body :</div>
         <textarea
-          className={styles.content}
+          className={`${styles.content} + ${styles[this.props.importance]}`}
           onChange={this.onChange}
           value={value}
           textarea="true"

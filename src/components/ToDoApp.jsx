@@ -21,7 +21,7 @@ class ToDoApp extends Component {
       taskEditorIsOpen: true,
     });
   };
-  onHidden = () => {
+  closeEditor = () => {
     this.setState({
       taskEditorIsOpen: false,
     });
@@ -30,10 +30,12 @@ class ToDoApp extends Component {
   //Task Object Model TOM
   //when pressing 'add' button from Editor
   onAdd = (TOM) => {
-    const { tasks } = this.state;
+    let { tasks } = this.state;
     const newTasks = tasks.slice();
     TOM.id = idGenerator();
     TOM.date = new Date().toDateString();
+    TOM.importance = TOM.importance || "casual";
+
     this.setState({
       tasks: pushInArray(newTasks, TOM),
     });
@@ -71,7 +73,7 @@ class ToDoApp extends Component {
 
   render() {
     const {
-      onHidden,
+      closeEditor,
       onAdd,
       onRemove,
       openEditor,
@@ -91,7 +93,9 @@ class ToDoApp extends Component {
           onRemoveSelected={onRemoveSelected}
           selectedTasksIds={this.selectedTasksIds}
         />
-        {taskEditorIsOpen && <TaskEditor onHidden={onHidden} onAdd={onAdd} />}
+        {taskEditorIsOpen && (
+          <TaskEditor onHidden={closeEditor} onAdd={onAdd} />
+        )}
         {/* Խիա ամենինչ 2 անգամ ռենդեր անում?  */}
         <TasksArea
           tasks={tasks}

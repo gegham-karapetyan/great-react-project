@@ -5,7 +5,7 @@ import ToDoCard from "./components-TaskArea/ToDoCard";
 class TasksArea extends Component {
   render() {
     const { onRemove, isSelected, onSelected } = this.props;
-    // ստեղ const {tasks} = this.state չի աշխատում
+
     const { tasks } = this.props;
 
     return (
@@ -17,6 +17,7 @@ class TasksArea extends Component {
             header={task.header}
             body={task.body}
             date={task.date}
+            importance={task.importance}
             onRemove={onRemove}
             onSelected={onSelected}
             isSelected={isSelected}
