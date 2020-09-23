@@ -44,6 +44,7 @@ class ToDoApp extends Component {
   //when removing one by one
   onRemove = (id) => {
     const { tasks } = this.state;
+    if (this.selectedTasksIds[id]) delete this.selectedTasksIds[id];
     this.setState({ tasks: tasks.filter((task) => task.id !== id) });
   };
 

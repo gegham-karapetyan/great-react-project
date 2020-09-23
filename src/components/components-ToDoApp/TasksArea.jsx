@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./TaskArea.module.css";
+import styles from "./TasksArea.module.css";
 import ToDoCard from "./components-TaskArea/ToDoCard";
 
 class TasksArea extends Component {
