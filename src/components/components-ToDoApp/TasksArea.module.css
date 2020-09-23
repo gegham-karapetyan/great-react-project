@@ -1,0 +1,8 @@
+.background {
+  background-color: #f8f8ff;
+  min-height: 730px;
+  padding: 1%;
+  width: 85%;
+  border: none;
+  box-shadow: 0 0 3px lightgray;
+}
