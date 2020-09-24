@@ -60,6 +60,7 @@ class ToDoCard extends PureComponent {
 
   render() {
     const props = this.props;
+    console.log("props.header", props.header);
     let {
       selected,
       doShowView,
@@ -127,8 +128,8 @@ class ToDoCard extends PureComponent {
             <TaskEditor
               onAdd={this.changeTask}
               onHidden={this.closeTaskEditor}
-              initialHeaderValue={props.header}
-              initialBodyValue={props.body}
+              initialHeaderValue={header}
+              initialBodyValue={body}
               importance={importance}
               buttonText="save"
             />
