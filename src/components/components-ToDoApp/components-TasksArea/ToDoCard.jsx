@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 import styles from "./ToDoCard.module.css";
-import important from "./important.png";
-import warning from "./warning.png";
-import casual from "./casual.png";
-import select from "./select.png";
+import important from "./images/important.png";
+import warning from "./images/warning.png";
+import casual from "./images/casual.png";
+import select from "./images/select.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import View from "./components-ToDoCard/View";
